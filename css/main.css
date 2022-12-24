@@ -1,0 +1,602 @@
+abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, p, pre, q, samp, section, small, span, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, ul, var, video{
+    margin: 0;
+    padding: 0;
+    /* CSS3盒子模型 */
+    box-sizing: border-box;
+}
+
+body,html {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    /* 22/12/08 遮罩伪类被遮挡，禁用来全局伪类事件，可以独立启用 */
+    pointer-events:none;
+    
+}
+
+body {
+    background-image: url(../assets/images/furryBG.jpg);
+    background-repeat: repeat;
+    
+    /* background-color: #ded8cb; */
+}
+canvas{
+
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    /* 启用点击事件 */
+    /* 启用旋转事件后会吞掉其它事件 */
+    /* pointer-events: auto; */
+ 
+}
+
+.dialog_wrapper-height{
+    position: absolute;
+    width: 120%;
+    padding-bottom: 88%;
+    left: 0;
+    scale:0.8;
+    top: 0%;
+
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 500;
+}
+
+.dialog_wrapper-width{
+    width: 100vw;
+    max-width: 1180px;
+    position: absolute;
+    top: 54%;
+    left: 46%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+
+    z-index: 500;
+}
+
+/* 整体缩放门，在这里的scale */
+.landing__wrapper-height {
+    position: absolute;
+    width: 110%;
+    scale: 1;
+    padding-bottom: 70.4%;
+    left: 0;
+    top: 0%;
+
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.landing__wrapper-width {
+    width: 80vw;
+    max-width: 1180px;
+    position: absolute;
+    top: 50%;
+    left: 46%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.landing__inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    /* 调用LDW动画 */
+    animation-name: shake;
+    /* 持续时间 */
+    animation-duration: 1.3s;
+    /* 延迟动画 */
+    animation-delay: 1.6s;
+}
+
+.landing__left_down-wall {
+    position: absolute;
+    width: 28.215%;
+    height: 61.7595%;
+    top:26%;
+    left: 4.5%;
+    overflow: hidden;
+    will-change: transform;
+    /* 调用LDW动画 */
+    animation-name: LDW;
+    /* 持续时间 */
+    animation-duration: 1.3s;
+}
+
+.landing__left_down-wall__borders {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/images/down_left_wall.png);
+    background-size: cover;
+}
+
+.landing__left_centerbar {
+    position: absolute;
+    top:24.05%;
+    left:  32.75%;
+    width: 1.7070075%;
+    height:63.2225%;
+    background-image: url(../assets/images/left_centerbar.png);
+    will-change: transform;
+    background-size: cover;
+
+    animation-name: LC;
+    animation-duration: 1.0s;
+}
+
+.landing__center_wall_clear{
+    position: absolute;
+    top: 14.6%;
+    left: 35%;
+    width: 30%;
+    height: 72.7%;
+    background-image: url(../assets/images/center_wall_clear.png);
+    background-size: cover;
+    will-change: transform;
+
+    animation-name: DCW;
+    animation-duration: 1.6s;
+    z-index: 1;
+}
+
+.landing__center_wall_clear_shadow{
+    position: absolute;
+    top: 14.6%;
+    left: 35%;
+    width: 30%;
+    height: 72.7%;
+    background-image: url(../assets/images/center_wall_clear_shadow.png);
+    background-size: cover;
+    will-change: transform;
+
+    animation-name: Aper;
+    animation-duration: 0.5s;
+    z-index: 1;
+}
+
+.landing__dark_lamp_full_center_wall_box{
+    position: absolute;
+    left: 32%;
+    top: 7.4%;
+    width: 36%;
+    height: 87%;
+    scale: 0.84;
+
+    animation-name: DLFCW;
+    animation-duration: 2s;
+}
+
+.landing__light_none_full_center_wall{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    content: '';
+    /* 启用伪类 */
+    animation-name: Aper;
+    animation-duration:0.5s;
+
+    /* 加不加都不会影响，只是下面webkit-mask会报错，说是没有声明 */
+     mask: url(#) ;mask-size: 100%;
+    -webkit-mask: url(../assets/images/dark_center_wall_mask.png) no-repeat ;
+    -webkit-mask-size: 100%;
+
+    background:url(../assets/images/light_none_full_center_wall.png) no-repeat ;
+    
+}
+
+.landing__dark_lamp_full_center_wall{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    content: '';
+    /* 启用伪类 */
+    pointer-events: auto;
+
+    /* 加不加都不会影响，只是下面webkit-mask会报错，说是没有声明 */
+     mask: url(#) ;mask-size: 100%;
+    -webkit-mask: url(../assets/images/dark_center_wall_mask.png) no-repeat ;
+    -webkit-mask-size: 100%;
+
+    background:url(../assets/images/dark_lamp_full_center_wall.png) no-repeat ;
+    
+
+
+}
+
+/* hover:移上去就消失 focus:click inside to pick up & click outside to put down */
+.landing__dark_lamp_full_center_wall:focus {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 100%;
+    content: '';
+
+    background:url(../assets/images/dark_none_full_center_wall.png) no-repeat  ;
+    /* 加不加都不会影响，只是下面webkit-mask会报错，说是没有声明 */
+     mask: url(#) ;mask-size: 100%;
+    -webkit-mask: url(../assets/images/dark_center_wall_mask.png) no-repeat  ;
+    -webkit-mask-size: 100%;
+
+}
+
+.landing__left_top-block {
+    left: 34.66%;
+    top: 13.8%;
+    position: absolute;
+    width: 14.6%;
+    height: 22.8%;
+    bottom: 11.4561766736%;
+    overflow: hidden;
+    will-change: transform;
+
+    animation-name: LTB;
+    animation-duration:0.9s;
+
+}
+
+.landing__left_top-block__borders {
+    position: absolute;
+    
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/images/left_top_block.png);
+    background-size: cover;
+}
+
+
+.landing__left_up-wall {
+    position: absolute;
+    width: 20.16%;
+    height: 40.32%;
+    top:14%;
+    left: 0.52%;
+    overflow: hidden;
+    will-change: transform;
+
+    animation-name: UW;
+    animation-duration: 1.4s;
+}
+
+.landing__left_up-wall__borders {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/images/up_left_wall.png);
+    background-size: cover;
+}
+
+@keyframes DLFCW{
+
+   0%{
+    opacity: 0;
+   }
+
+}
+
+@keyframes LDW {
+   /* 开始状态 */
+   0%{
+    transform: matrix(1,0,0.2,1,-600,0);
+   }
+   /* 结束状态 */
+   100%{
+    transform: matrix(1,0,0,1,0,0);    
+   }
+}
+
+@keyframes LC {
+    /* 开始状态 */
+    0%{
+     transform: matrix(1,0,0.2,1,-600,0);
+    }
+    /* 结束状态 */
+    100%{
+     transform: matrix(1,0,0,1,0,0);    
+    }
+ }
+
+ @keyframes LTB {
+    /* 开始状态 */
+    0%{
+     transform: matrix(1,0,0.2,1,-720,0);
+    }
+    /* 结束状态 */
+    100%{
+     transform: matrix(1,0,0,1,0,0);    
+    }
+ }
+
+ @keyframes DCW {
+    /* 开始状态 */
+    0%{
+     transform: rotateY(90deg);
+    }
+ }
+
+ .landing__right_up-wall {
+    position: absolute;
+    width: 20.16%;
+    height: 40.32%;
+    top:14%;
+    right: 0.52%;
+    overflow: hidden;
+    will-change: transform;
+
+    animation-name: UW;
+    animation-duration: 1.4s;
+}
+
+.landing__right_up-wall__borders {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/images/up_right_wall.png);
+    background-size: cover;
+}
+
+.landing__right_down-wall {
+    position: absolute;
+    width: 28.215%;
+    height: 61.7595%;
+    top:26%;
+    right: 4.5%;
+    overflow: hidden;
+    will-change: transform;
+    /* 调用LDW动画 */
+    animation-name: RDW;
+    /* 持续时间 */
+    animation-duration: 1.3s;
+}
+
+.landing__right_down-wall__borders {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/images/down_right_wall.png);
+    background-size: cover;
+}
+
+.landing__right_centerbar {
+    position: absolute;
+    top:24.05%;
+    right:  32.75%;
+    width: 1.7070075%;
+    height:63.2225%;
+    background-image: url(../assets/images/right_centerbar.png);
+    will-change: transform;
+    background-size: cover;
+
+    animation-name: RC;
+    animation-duration: 1.0s;
+}
+
+.landing__right_top-block {
+    right: 34.66%;
+    top: 13.8%;
+    position: absolute;
+    width: 14.6%;
+    height: 22.8%;
+    bottom: 11.4561766736%;
+    overflow: hidden;
+    will-change: transform;
+
+    animation-name: RTB;
+    animation-duration:0.9s;
+}
+
+.landing__right_top-block__borders {
+    position: absolute;
+    
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/images/right_top_block.png);
+    background-size: cover;
+}
+
+@keyframes RDW {
+    /* 开始状态 */
+    0%{
+     transform: matrix(1,0.2,0,1,600,0);
+    }
+    /* 结束状态 */
+    100%{
+     transform: matrix(1,0,0,1,0,0);    
+    }
+ }
+
+ @keyframes RC {
+    /* 开始状态 */
+    0%{
+     transform: matrix(1,0.2,0,1,600,0);
+    }
+    /* 结束状态 */
+    100%{
+     transform: matrix(1,0,0,1,0,0);    
+    }
+ }
+
+ @keyframes RTB {
+    /* 开始状态 */
+    0%{
+     transform: matrix(1,0.2,0,1,720,0);
+    }
+    /* 结束状态 */
+    100%{
+     transform: matrix(1,0,0,1,0,0);    
+    }
+ }
+
+ @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(+2px, 0, 0); }
+    30%, 70% { transform: translate3d(-3px, -0.5px, 0); }
+    40%, 60% { transform: translate3d(+3px, +0.8px, 0); }
+    50% { transform: translate3d(-3px, 0, 0); }
+ }
+
+ @keyframes UW {
+    /* 开始状态 */
+    0%{
+        opacity: 0;
+        transform: translate3d(0,100px, 0);
+        
+    }
+    /* 结束状态 空着就是还原 */
+    100%{
+         
+    }
+ }
+
+.salty_lamp_display{
+    position: absolute;
+    z-index : 100 ;
+    left: 1%;
+    top: 7%;
+
+
+    animation-name: Aper;
+    animation-duration: 1.4s;
+}
+
+.salty_lamp_hide{
+    position: absolute;
+    z-index : 100 ;
+    left: 1%;
+    top: 7%;
+    opacity: 0;
+
+    animation-name: DisAper;
+    animation-duration: 0.45s;
+}
+
+@keyframes Aper {
+    0%{
+     opacity: 0;
+    }
+ }
+
+ @keyframes Aper_scale {
+    0%{
+     scale: 0.5;
+     opacity: 0;
+    }
+ }
+
+ @keyframes DisAper {
+    0%{
+     opacity: 1;
+    }
+    100%{
+     scale:0.95 ;
+     opacity: 0;
+    }
+ }
+
+ @keyframes DisAper_forbaby {
+    100%{
+     scale: 2;
+     opacity: 0;
+    }
+ }
+
+ .salty_baby_appear{
+    position: absolute;
+    top: 35.2%;
+    right: 36%;
+    width: 28%;
+    height: 41.85%;
+    background-image: url(../assets/images/salty_baby.png);
+    background-size: cover;
+
+
+    animation-name: Aper_scale;
+    animation-duration:1s;
+ }
+
+ .salty_baby_disappear{
+    position: absolute;
+    top: 35.2%;
+    right: 36%;
+    width: 28%;
+    height: 41.85%;
+    background-image: url(../assets/images/salty_baby_vague.png);
+    background-size: cover;
+    z-index: 200;
+    
+    animation-name: DisAper_forbaby;
+    animation-duration:0.6s;
+}
+
+.I_OS{
+    position: absolute;
+    top: 0%;
+    right: 50%;
+    width: 45%;
+    height: 30%;
+    scale: 1;
+    overflow: hidden;
+    will-change: transform;
+    background-image: url(../assets/images/850X250.png);
+    background-size: cover;
+}
+
+
+
+.words{
+   position: relative;
+   top: 38%;
+   left:14%;
+   /* 行距 */
+   line-height:1.5;
+   /*文字自适应窗口缩放  */
+   font-size: 2.2vh;
+   text-align:center;
+}
+
+.guangbiao{
+    position: relative;
+    top: 37%;
+    left:14.6%;
+    scale: 1.15;
+    color:rgb(34, 35, 40);
+    animation: flash 1s linear infinite;
+}
+
+@keyframes flash{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 0.8;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0.8;
+    }
+}
