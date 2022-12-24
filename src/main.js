@@ -114,6 +114,8 @@ function focusLisener(){
          setTimeout(function(){putdown_lamp.play()},"0");
 
          setTimeout(function(){document.getElementById("salty_lamp").className = "salty_lamp_hide";},"10");
+    }
     })
+    
     
 }
